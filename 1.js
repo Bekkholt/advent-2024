@@ -12,21 +12,24 @@ fetch('1.txt').then(response => {
         list1.push(Number.parseInt(numbers[0]));
         list2.push(Number.parseInt(numbers[1]));
     }
+
     list1.sort();
     list2.sort();
 
-    const distances = [];
+
+    let totalDistance = 0;
+
 
     for (let index = 0; index < dataLines.length; index++) {
         const num1 = list1[index];
         const num2 = list2[index];
         const distance = Math.abs(num2 - num1);
 
-        distances.push(distance);
-        
+        totalDistance += distance;
     }
 
-    console.log(distances);
+    console.log(totalDistance);
+    //2086478
 
 }).catch(error =>
     console.error('ERROR 2')
