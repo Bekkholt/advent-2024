@@ -7,18 +7,26 @@ fetch('1.txt').then(response => {
     const list1 = [];
     const list2 = [];
     const dataLines = data.split('\n');
-    console.log(dataLines.length);
     for (const line of dataLines) {
         const numbers = line.split('   ');
-        console.log(numbers.length);
         list1.push(Number.parseInt(numbers[0]));
         list2.push(Number.parseInt(numbers[1]));
     }
-    console.log(list1);
-    console.log(list2);
+    list1.sort();
+    list2.sort();
 
+    const distances = [];
 
+    for (let index = 0; index < dataLines.length; index++) {
+        const num1 = list1[index];
+        const num2 = list2[index];
+        const distance = Math.abs(num2 - num1);
 
+        distances.push(distance);
+        
+    }
+
+    console.log(distances);
 
 }).catch(error =>
     console.error('ERROR 2')
